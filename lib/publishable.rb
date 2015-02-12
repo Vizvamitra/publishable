@@ -1,9 +1,9 @@
 module Publishable
-  xtend ActiveSupport::Concern
+  extend ActiveSupport::Concern
 
   included do
     scope :published, -> { where(published: true).where('published_at <= CURRENT_TIMESTAMP').where('expires_at IS NULL OR expires_at > CURRENT_TIMESTAMP') }
-    scope :not_published, -> { where('published = false OR published_at > CURRENT_TIMESTAMP OR expires_at <= CURRENT_TIMESTAMP') }
+    scope :not_published, -> { where("published = #{ActiveRecord::Base.connection.quoted_false} OR published IS NULL OR published_at > CURRENT_TIMESTAMP OR expires_at <= CURRENT_TIMESTAMP") }
     scope :planned, -> { where(published: true).where('published_at > CURRENT_TIMESTAMP') }
     scope :expired, -> { where(published: true).where('expires_at <= CURRENT_TIMESTAMP') }
     scope :drafts, -> { where(published: false) }

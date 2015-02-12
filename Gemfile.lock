@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     publishable (0.0.1)
-      rails (~> 4.2.0)
+      rails (>= 4.1.0)
 
 GEM
   remote: https://rubygems.org/

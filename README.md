@@ -31,7 +31,9 @@ end
 #### Features
 
 This concern brings four publish-related states to you model:
-`:published`, `:planned`, `:expired` and `:draft`. By default (after creation) record starts as a draft, witch means it has `published: false`. State will change depending on :published, :published_at and :expires_at values
+`:published`, `:planned`, `:expired` and `:draft`. By default (after creation) record starts as a draft, which means it has `published: false`. State will change depending on :published, :published_at and :expires_at values
+
+You can get current state with `#state` method, which will returs symbol name of record's current status
 
 It also adds four predicate methods:
 
