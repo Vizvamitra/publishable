@@ -50,9 +50,18 @@ and some scopes:
 4. `Page.expired`
 5. `Page.drafts`
 
+#### Supported orms
+   
+Gem supports ActiveRecord and Mongoid.
+
+If you need support of other orm, you can define your own scopes module for it. See [ActiveRecord scopes][1] or [Mongoid scopes][2] for an example.
+
 #### Contacts
 
 You can contact me via email: <vizvamitra@gmail.com>
 Feel free to make pull requests or create issues)
 
 Dmitrii Krasnov
+
+[1]: lib/publishable/scopes/active_record.rb
+[2]: lib/publishable/scopes/mongoid.rb
