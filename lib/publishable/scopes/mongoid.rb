@@ -11,7 +11,7 @@ module Publishable
       included do |base|
         scope :published, ->{
           now = Time.now
-          where(:published_at.lte => now).
+          where(published: true, :published_at.lte => now).
           or(expires_at: nil).
           or(:expires_at.gt => now)
         }
